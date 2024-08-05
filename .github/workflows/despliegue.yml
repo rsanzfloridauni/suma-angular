@@ -39,6 +39,6 @@ jobs:
         echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh -o StrictHostKeyChecking=no $USERNAME@$HOST "mkdir -p $DEPLOY_PATH"
-        rsync -avz --delete ./dist/suma-app/ $USERNAME@$HOST:$DEPLOY_PATH
+        rsync -avz --delete ./dist/suma-app/browser $USERNAME@$HOST:$DEPLOY_PATH
         ssh $USERNAME@$HOST 'sudo systemctl restart nginx'
 
